@@ -2,29 +2,18 @@ from sqlite3 import Cursor
 import mysql.connector
 from mysql.connector import Error
 
-class DAO:
+class DAO():
 
 #Conexion a base de datos
     def __init__(self):
-
         try:
-            connection=mysql.connector.connect(
-            host="localHost",
-            port=3306,
-            user="root",
-            password="754200",
-            db="sistemaadm"
-        )
-
-            if connection.is_connected():
-                print("conexion exitosa")
-                info_server=connection.get_server_info()
-                print(info_server)
-                Cursor=connection.Cursor()
-                Cursor.execute("SELECT DATABASE()")
-                row=Cursor.fetchone()
-                print("conectado a la base de datos: {}".format(row))
-
+            self.conexion=mysql.connector.connect(
+                host="localHost",
+                port=3306,
+                user="root",
+                password="754200",
+                db="sistemaadm"
+            )
         except Error as ex:
             print("Error al intentar conexion: {0}".format(ex))
 
