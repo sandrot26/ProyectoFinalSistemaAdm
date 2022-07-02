@@ -1,4 +1,3 @@
-from ast import Break
 import funtions
 from src.conexion_mysql import DAO
 
@@ -156,7 +155,20 @@ def menuPrincipal():
                     print("Ocurrio un error...")
 
             elif opcionEmpleado == 3:
-                pass
+                try:
+                    employees = dao.listarEmployees()
+                    if len(employees) > 0:
+                        funtions.verEmployees(employees)
+                        eliminarEmpleado = funtions.datosEliminarEmpleado(employees)
+                        if (eliminarEmpleado == ""):
+                            dao.deleteCliente(eliminarEmpleado)
+                        else:
+                            print("Empleado no encontrado...")
+                    else:
+                        print("No se encontraron empleados...\n")
+                except:
+                    print("Ocurrio un error...")
+                    
             elif opcionEmpleado == 4:
                 pass
             elif opcionEmpleado == 5:

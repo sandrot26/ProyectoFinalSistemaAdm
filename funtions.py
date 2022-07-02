@@ -136,7 +136,7 @@ def datosEliminarCliente(clients):
     listarClients(clients)
     
     existeDni = False
-    eliminarCLiente = input("Ingrese el DNI del producto a eliminar: ")
+    eliminarCLiente = input("Ingrese el DNI del cliente a eliminar: ")
     for cur in clients:
         if cur[0] == eliminarCLiente:
             existeDni = True
@@ -145,3 +145,18 @@ def datosEliminarCliente(clients):
         existeDni = ""
     
     return existeDni
+
+    #Funcion para eliminar empleado
+def datosEliminarEmpleado(employees):
+    verEmployees(employees)
+    
+    existeDniEmpleado = False
+    eliminarEmpleado = input("Ingrese el DNI del empleado a eliminar: ")
+    for cur in employees:
+        if cur[0] == eliminarEmpleado:
+            existeDniEmpleado = True
+            break
+    if not existeDniEmpleado:
+        existeDniEmpleado = ""
+    
+    return existeDniEmpleado

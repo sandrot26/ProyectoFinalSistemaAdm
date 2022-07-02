@@ -20,9 +20,9 @@ class DAO:
                 print("conexion exitosa")
                 info_server=connection.get_server_info()
                 print(info_server)
-                cursor=connection.cursor()
-                cursor.execute("SELECT DATABASE()")
-                row=cursor.fetchone()
+                Cursor=connection.Cursor()
+                Cursor.execute("SELECT DATABASE()")
+                row=Cursor.fetchone()
                 print("conectado a la base de datos: {}".format(row))
 
         except Error as ex:
@@ -33,9 +33,9 @@ class DAO:
         
         if self.conexion.is_connected():
             try:
-                cursor=self.conexion.cursor()
-                cursor.execute("SELECT * FROM products ORDEN BY nameProduct ASC")
-                resultados = cursor.fetchall()
+                Cursor=self.conexion.Cursor()
+                Cursor.execute("SELECT * FROM products ORDEN BY nameProduct ASC")
+                resultados = Cursor.fetchall()
                 return resultados
 
             except Error as ex:
@@ -47,9 +47,9 @@ class DAO:
         
         if self.conexion.is_connected():
             try:
-                cursor=self.conexion.cursor()
-                cursor.execute("SELECT * FROM clients ORDEN BY name ASC")
-                resultados = cursor.fetchall()
+                Cursor=self.conexion.Cursor()
+                Cursor.execute("SELECT * FROM clients ORDEN BY name ASC")
+                resultados = Cursor.fetchall()
                 return resultados
 
             except Error as ex:
@@ -60,9 +60,9 @@ class DAO:
         
         if self.conexion.is_connected():
             try:
-                cursor=self.conexion.cursor()
-                cursor.execute("SELECT * FROM employees ORDEN BY nameEmployees ASC")
-                resultados = cursor.fetchall()
+                Cursor=self.conexion.Cursor()
+                Cursor.execute("SELECT * FROM employees ORDEN BY nameEmployees ASC")
+                resultados = Cursor.fetchall()
                 return resultados
 
             except Error as ex:
@@ -72,9 +72,9 @@ class DAO:
     def nuevoCliente(self, clients):
           if self.conexion.is_connected():
             try:
-                cursor = self.conexion.cursor()
+                Cursor = self.conexion.Cursor()
                 sql = "INSERT INTO clients (names, surnames, dni, direction, phone, email) VALUES ('{0}','{1}','{2}', '{3}','{4}','{5}')"
-                cursor.execute(sql.format(clients[0], clients[1], clients[2], clients[3], clients[4], clients[5]))
+                Cursor.execute(sql.format(clients[0], clients[1], clients[2], clients[3], clients[4], clients[5]))
                 self.conexion.commit()
                 print("Se cargo correctamente el cliente\n")
 
@@ -85,9 +85,9 @@ class DAO:
     def nuevoEmpleado(self, employees):
           if self.conexion.is_connected():
             try:
-                cursor = self.conexion.cursor()
+                Cursor = self.conexion.Cursor()
                 sql = "INSERT INTO employees (namesEmployee, surnameEmployee, dniEmployee, phoneEmployee) VALUES ('{0}','{1}','{2}', '{3}')"
-                cursor.execute(sql.format(employees[0], employees[1], employees[2], employees[3]))
+                Cursor.execute(sql.format(employees[0], employees[1], employees[2], employees[3]))
                 self.conexion.commit()
                 print("Se cargo correctamente el empleado\n")
 
@@ -98,9 +98,9 @@ class DAO:
     def nuevoProducto(self, products):
           if self.conexion.is_connected():
             try:
-                cursor = self.conexion.cursor()
+                Cursor = self.conexion.Cursor()
                 sql = "INSERT INTO products (namesProduct, stock, price) VALUES ('{0}','{1}','{2}')"
-                cursor.execute(sql.format(products[0], products[1], products[2]))
+                Cursor.execute(sql.format(products[0], products[1], products[2]))
                 self.conexion.commit()
                 print("Se cargo correctamente el producto\n")
 
@@ -111,9 +111,9 @@ class DAO:
     def deleteProducto(self, eliminarProducto):
         if self.conexion.is_connected():
             try:
-                cursor = self.conexion.cursor()
+                Cursor = self.conexion.Cursor()
                 sql = "DELETE FROM products WHERE idProducts = '{0}'"
-                cursor.execute(sql.format(eliminarProducto))
+                Cursor.execute(sql.format(eliminarProducto))
                 self.conexion.commit()
                 print("Se elimino el Producto correctamente\n")
 
@@ -124,9 +124,9 @@ class DAO:
     def deleteCliente(self, eliminarCliente):
         if self.conexion.is_connected():
             try:
-                cursor = self.conexion.cursor()
+                Cursor = self.conexion.Cursor()
                 sql = "DELETE FROM clients WHERE dni = '{0}'"
-                cursor.execute(sql.format(eliminarCliente))
+                Cursor.execute(sql.format(eliminarCliente))
                 self.conexion.commit()
                 print("Se elimino el Cliente correctamente\n")
 
