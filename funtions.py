@@ -44,17 +44,14 @@ def colocarDatosClientes():
 
     direction = input("Ingrese Direccion: ")
     
-    telefonoCorrecto = False
-    while(not telefonoCorrecto):
-        phone = input("Ingrese Telefono (SIN SEPARACIONES, NI(-,.,+,#)): ")
-        if len(phone) > 8 or len(phone) < 12: 
-                if phone.isnumeric():
-                    telefonoCorrecto: True
-                    phone = int(phone)
-                else:
-                    print('Telefono incorrecto: Debe ser solamente numerico.')
+    phone = input("Ingrese Telefono (SIN SEPARACIONES, NI(-,.,+,#)): ")
+    if len(phone) > 8 or len(phone) < 12: 
+        if phone.isnumeric():
+            phone = int(phone)
         else:
-            print("El numero de telefono no es valido")
+            print('Telefono incorrecto: Debe ser solamente numerico.')
+    else:
+        print("El numero de telefono no es valido")
     
     email = input("Ingrese E-mail: ")
 
