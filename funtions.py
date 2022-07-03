@@ -23,8 +23,8 @@ def verEmployees(employees):
     print("\nEmpleados: \n")
     contador = 1
     for cur in employees:
-        datos="{0}. idProducts: {1} | nameProduct: {2} ({3} price)"
-        print(datos.format(contador, cur[0], cur[1], cur[2]))
+        datos="{0}. ID: {1} | Nombre: {2} {3} | DNI {4}"
+        print(datos.format(contador, cur[0], cur[1], cur[2], cur[3], cur[4]))
         contador = contador + 1
     print(" ")
 
@@ -72,17 +72,14 @@ def agregarEmpleado():
         else:
             print("DNI debe tener como maximo 8 digitos y sin puntos.")
     
-    telefonoEmpleado = False
-    while(not telefonoEmpleado):
-        phoneEmployee = input("Ingrese Telefono (SIN SEPARACIONES, NI(-,.,+,#)): ")
-        if len(phoneEmployee) > 8 or len(phoneEmployee) < 12: 
-                if phoneEmployee.isnumeric():
-                    telefonoEmpleado: True
-                    phoneEmployee = int(phoneEmployee)
-                else:
-                    print('Telefono incorrecto: Debe ser solamente numerico.')
-        else:
-            print("El numero de telefono no es valido")
+    phoneEmployee = input("Ingrese Telefono (SIN SEPARACIONES, NI(-,.,+,#)): ")
+    if len(phoneEmployee) > 8 or len(phoneEmployee) < 12: 
+            if phoneEmployee.isnumeric():
+                phoneEmployee = int(phoneEmployee)
+            else:
+                print('Telefono incorrecto: Debe ser solamente numerico.')
+    else:
+        print("El numero de telefono no es valido")
     
     employees = (nameEmployee, surnameEmployee, dniEmployee, phoneEmployee)
     return employees
@@ -122,13 +119,13 @@ def datosEliminarProducto(products):
     existeId = False
     eliminarProducto = input("Ingrese el ID del producto a eliminar: ")
     for cur in products:
-        if cur[0] == eliminarProducto:
+        if cur[0] == int(eliminarProducto):
             existeId = True
             break
     if not existeId:
         existeId = ""
     
-    return existeId
+    return int(eliminarProducto)
 
 #Funcion para eliminar cliente
 def datosEliminarCliente(clients):
@@ -137,13 +134,13 @@ def datosEliminarCliente(clients):
     existeDni = False
     eliminarCLiente = input("Ingrese el DNI del cliente a eliminar: ")
     for cur in clients:
-        if cur[0] == eliminarCLiente:
+        if cur[3] == int(eliminarCLiente):
             existeDni = True
             break
     if not existeDni:
         existeDni = ""
     
-    return existeDni
+    return int(eliminarCLiente)
 
     #Funcion para eliminar empleado
 def datosEliminarEmpleado(employees):
@@ -152,10 +149,11 @@ def datosEliminarEmpleado(employees):
     existeDniEmpleado = False
     eliminarEmpleado = input("Ingrese el DNI del empleado a eliminar: ")
     for cur in employees:
-        if cur[0] == eliminarEmpleado:
+        print(cur)
+        if cur[3] == int(eliminarEmpleado):
             existeDniEmpleado = True
             break
     if not existeDniEmpleado:
         existeDniEmpleado = ""
     
-    return existeDniEmpleado
+    return int(eliminarEmpleado)

@@ -49,7 +49,7 @@ def menuPrincipal():
                     if len(products) > 0:
                         funtions.listarProducts(products)
                         eliminarProducto = funtions.datosEliminarProducto(products)
-                        if (eliminarProducto == ""):
+                        if (eliminarProducto):
                             dao.deleteProducto(eliminarProducto)
                         else:
                             print("Producto no encontrado...")
@@ -104,7 +104,7 @@ def menuPrincipal():
                     if len(clients) > 0:
                         funtions.listarProducts(clients)
                         eliminarCliente = funtions.datosEliminarCliente(clients)
-                        if (eliminarCliente == ""):
+                        if (eliminarCliente):
                             dao.deleteCliente(eliminarCliente)
                         else:
                             print("Producto no encontrado...")
@@ -158,8 +158,8 @@ def menuPrincipal():
                     if len(employees) > 0:
                         funtions.verEmployees(employees)
                         eliminarEmpleado = funtions.datosEliminarEmpleado(employees)
-                        if (eliminarEmpleado == ""):
-                            dao.deleteCliente(eliminarEmpleado)
+                        if (eliminarEmpleado):
+                            dao.deleteEmpleado(eliminarEmpleado)
                         else:
                             print("Empleado no encontrado...")
                     else:

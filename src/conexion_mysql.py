@@ -49,7 +49,7 @@ class DAO():
         if self.conexion.is_connected():
             try:
                 cursor=self.conexion.cursor()
-                cursor.execute("SELECT * FROM employees ORDER BY nameEmployees ASC")
+                cursor.execute("SELECT * FROM employees ORDER BY nameEmployee ASC")
                 resultados = cursor.fetchall()
                 return resultados
 
@@ -74,7 +74,7 @@ class DAO():
           if self.conexion.is_connected():
             try:
                 cursor = self.conexion.cursor()
-                sql = "INSERT INTO employees (namesEmployee, surnameEmployee, dniEmployee, phoneEmployee) VALUES ('{0}','{1}','{2}', '{3}')"
+                sql = "INSERT INTO employees (nameEmployee, surnameEmployee, dniEmployee, phoneEmployee) VALUES ('{0}','{1}','{2}', '{3}')"
                 cursor.execute(sql.format(employees[0], employees[1], employees[2], employees[3]))
                 self.conexion.commit()
                 print("Se cargo correctamente el empleado\n")
@@ -117,6 +117,19 @@ class DAO():
                 cursor.execute(sql.format(eliminarCliente))
                 self.conexion.commit()
                 print("Se elimino el Cliente correctamente\n")
+
+            except Error as ex:
+                print("Error al intentar conexion: {0}".format(ex))
+
+#Funcion de Eliminar Empleado
+    def deleteEmpleado(self, eliminarEmpleado):
+        if self.conexion.is_connected():
+            try:
+                cursor = self.conexion.cursor()
+                sql = "DELETE FROM employees WHERE dniEmployee = '{0}'"
+                cursor.execute(sql.format(eliminarEmpleado))
+                self.conexion.commit()
+                print("Se elimino el Empleado correctamente\n")
 
             except Error as ex:
                 print("Error al intentar conexion: {0}".format(ex))
