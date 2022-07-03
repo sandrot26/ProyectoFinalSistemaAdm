@@ -13,8 +13,8 @@ def listarClients(clients):
     print("\nClientes: \n")
     contador = 1
     for cur in clients:
-        datos="{0}. idProducts: {1} | nameProduct: {2} ({3} price)"
-        print(datos.format(contador, cur[0], cur[1], cur[2]))
+        datos="{0}. ID: {1} | Nombre: {2} {3} | DNI: {4}"
+        print(datos.format(contador, cur[0], cur[1], cur[2], cur[3], cur[4]))
         contador = contador + 1
     print(" ")
 
