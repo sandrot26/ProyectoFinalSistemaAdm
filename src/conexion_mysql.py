@@ -36,7 +36,7 @@ class DAO():
         if self.conexion.is_connected():
             try:
                 cursor=self.conexion.cursor()
-                cursor.execute("SELECT * FROM clients ORDER BY name ASC")
+                cursor.execute("SELECT * FROM clients ORDER BY names ASC")
                 resultados = cursor.fetchall()
                 return resultados
 
