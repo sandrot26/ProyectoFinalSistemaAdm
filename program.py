@@ -20,9 +20,8 @@ def menuPrincipal():
         print("4 - Buscar Producto")
         print("5 - Regresar menu principal")
         print("====================================")
-        
+        opcionProducto = int(input("Selecione una opcion: "))
         def ejecutarOpcion(opcionProducto):
-            opcionProducto = int(input("Selecione una opcion: "))
             dao = DAO()
             
             if opcionProducto == 1:
@@ -32,16 +31,16 @@ def menuPrincipal():
                         funtions.listarProducts(products)
                     else:
                         print("No se encontraron productos...")
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
             
             elif opcionProducto == 2:
                 print("Nuevo Producto")
                 products = funtions.agregarProducto()
                 try:
                     dao.nuevoProducto(products)
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
 
             elif opcionProducto == 3:
                 
@@ -57,8 +56,8 @@ def menuPrincipal():
                     else:
                         print("No se encontraron productos...\n")
 
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
 
             elif opcionProducto == 4:
                 pass
@@ -69,6 +68,7 @@ def menuPrincipal():
                 print(" ")
                 print("Opcion incorrecta, ingrese nuevamente...")
                 print(" ")
+        ejecutarOpcion(opcionProducto)
 
     elif opcion == 2:
         print("1 - Lista Clientes")
@@ -77,9 +77,8 @@ def menuPrincipal():
         print("4 - Buscar Cliente")
         print("5 - Regresar menu principal")
         print("====================================")
-
+        opcionCliente = int(input("Selecione una opcion: "))
         def ejecutarOpcion(opcionCliente):
-            opcionCliente = int(input("Selecione una opcion: "))
             dao = DAO()
             if opcionCliente == 1:
                 try:
@@ -88,16 +87,16 @@ def menuPrincipal():
                         funtions.listarClients(clients)
                     else:
                         print("No se encontraron clientes...")
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
             
             elif opcionCliente == 2:
                 print("Nuevo Cliente")
                 clients = funtions.colocarDatosClientes()
                 try:
                     dao.nuevoCliente(clients)
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
             
             elif opcionCliente == 3:
                 try:
@@ -112,8 +111,8 @@ def menuPrincipal():
                     else:
                         print("No se encontraron productos...\n")
 
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
             elif opcionCliente == 4:
                 pass
             elif opcionCliente == 5:
@@ -123,7 +122,7 @@ def menuPrincipal():
                 print(" ")
                 print("Opcion incorrecta, ingrese nuevamente...")
                 print(" ")
-
+        ejecutarOpcion(opcionCliente)
     elif opcion == 3:
         print("1 - Lista Empleados")
         print("2 - Agregar Empleado")
@@ -131,9 +130,8 @@ def menuPrincipal():
         print("4 - Buscar Empleado")
         print("5 - Regresar menu principal")
         print("====================================")
-        
+        opcionEmpleado = int(input("Selecione una opcion: "))
         def ejecutarOpcion(opcionEmpleado):
-            opcionEmpleado = int(input("Selecione una opcion: "))
             dao = DAO()
             
             if opcionEmpleado == 1:
@@ -143,16 +141,16 @@ def menuPrincipal():
                         funtions.verEmployees(employees)
                     else:
                         print("No se encontraron empleados...")
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
             
             elif opcionEmpleado == 2:
                 print("Nuevo Empleado")
                 employees = funtions.agregarEmpleado()
                 try:
                     dao.nuevoEmpleado(employees)
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
 
             elif opcionEmpleado == 3:
                 try:
@@ -166,8 +164,8 @@ def menuPrincipal():
                             print("Empleado no encontrado...")
                     else:
                         print("No se encontraron empleados...\n")
-                except:
-                    print("Ocurrio un error...")
+                except Exception as Argument:
+                    print(Argument)
                     
             elif opcionEmpleado == 4:
                 pass
@@ -178,7 +176,7 @@ def menuPrincipal():
                 print(" ")
                 print("Opcion incorrecta, ingrese nuevamente...")
                 print(" ")
-
+        ejecutarOpcion(opcionEmpleado)
     elif opcion == 4:
         print("1 - Lista Facturas")
         print("2 - Nueva Factura")

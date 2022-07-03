@@ -92,6 +92,9 @@ def agregarEmpleado():
 
 #Funcion para agregar Producto.
 def agregarProducto():
+
+    idProducts = input("Ingrese codigo del Producto ")
+
     nameProduct = input("Ingrese Nombre Producto ")
     
     stockProducto = False
@@ -103,7 +106,6 @@ def agregarProducto():
         else:
             print("Ingrese la cantidad en numeros.")
     
-    
     precioProducto = False
     while(not precioProducto):
         price = input("Ingrese el precio del producto agregados: ")
@@ -113,7 +115,7 @@ def agregarProducto():
         else:
             print("Ingrese el precio en numeros.")
     
-    products = (nameProduct, stock, price)
+    products = (idProducts, nameProduct, stock, price)
     return products
 
 #Funcion para eliminar productos
